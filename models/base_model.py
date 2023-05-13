@@ -3,7 +3,6 @@
 A module to implement BaseModel class
 """
 
-from models import storage
 from uuid import uuid4
 from datetime import datetime
 
@@ -22,6 +21,7 @@ class BaseModel:
             **kwargs (dict): Key/value pairs of attributes.
         """
 
+        from models import storage
         self.id = str(uuid4())
         self.created_at = self.updated_at = datetime.now()
         if kwargs:
@@ -45,8 +45,9 @@ class BaseModel:
         """
         Updates 'self.updated_at' with the current datetime
         """
+        from models import storage
         self.updated_at = datetime.now()
-        storage.save(self)
+        storage.save()
 
     def to_dict(self):
         """

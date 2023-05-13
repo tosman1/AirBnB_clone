@@ -4,8 +4,7 @@ __init__ magic method for models directory
 to create a unique FileStorage instance for this application
 to store and reload
 """
-from models.engine import file_storage
+from models.engine.file_storage import FileStorage
 
-
-storage = file_storage.FileStorage()
+storage = FileStorage()
 storage.reload()
