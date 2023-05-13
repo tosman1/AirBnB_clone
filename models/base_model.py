@@ -27,7 +27,7 @@ class BaseModel:
                 if key in ('created_at', 'updated_at'):
                     setattr(self, key, datetime.fromisoformat(value))
                 else:
-                    setattr(self, key, value)
+                    self.__dict__[key] = value
 
     def __str__(self):
         """
