@@ -45,15 +45,15 @@ After cloning the repository you will have a folder called AirBnB_clone. In here
 > 
 > models/user.py: User class that inherits from BaseModel
 > 
->models/state.py: State class that inherits from BaseModel
+> models/state.py: State class that inherits from BaseModel
 >
->models/city.py: City class that inherits from BaseModel
+> models/city.py: City class that inherits from BaseModel
 >
->models/amenity.py: Amenity class that inherits from BaseModel
+> models/amenity.py: Amenity class that inherits from BaseModel
 >
->models/place.py: Place class that inherits from BaseModel
+> models/place.py: Place class that inherits from BaseModel
 >
->models/review.py: Review class that inherits from BaseModel
+> models/review.py: Review class that inherits from BaseModel
 
 
 
