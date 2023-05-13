@@ -1,7 +1,9 @@
+#!/usr/bin/python3
 """
 A module to implement BaseModel class
 """
 
+from models import storage
 from uuid import uuid4
 from datetime import datetime
 
@@ -28,6 +30,8 @@ class BaseModel:
                     setattr(self, key, datetime.fromisoformat(value))
                 else:
                     self.__dict__[key] = value
+        else:
+            storage.new(self)
 
     def __str__(self):
         """
@@ -42,6 +46,7 @@ class BaseModel:
         Updates 'self.updated_at' with the current datetime
         """
         self.updated_at = datetime.now()
+        storage.save(self)
 
     def to_dict(self):
         """
