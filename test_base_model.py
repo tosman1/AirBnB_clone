@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import parent
 from models.base_model import BaseModel
 
 my_model = BaseModel()

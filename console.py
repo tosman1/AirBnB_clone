@@ -2,6 +2,7 @@
 """contains the entry point of the command interpreter."""
 import cmd
 
+
 class HBNBCommand(cmd.Cmd):
     """The class that implements the console
     for the AirBnB clone web application
