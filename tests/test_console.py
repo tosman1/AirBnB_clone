@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Defines unittests for console.py.
 
-Unittest classes:
+Unittest classes are listed below:
     TestHBNBCommand_prompting
     TestHBNBCommand_help
     TestHBNBCommand_exit
