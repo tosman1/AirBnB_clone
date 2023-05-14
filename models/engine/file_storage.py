@@ -4,6 +4,12 @@ A Module for the FileStorage class model
 """
 import json
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 
 
 class FileStorage:
@@ -28,8 +34,8 @@ class FileStorage:
         """
         Sets in __objects the obj with key <obj class name>.id
         """
-        obname = obj.__class__.__name__
-        self.__objects["{}.{}".format(obname, obj.id)] = obj
+        obj_name = obj.__class__.__name__
+        self.__objects["{}.{}".format(obj_name, obj.id)] = obj
 
     def save(self):
         """
