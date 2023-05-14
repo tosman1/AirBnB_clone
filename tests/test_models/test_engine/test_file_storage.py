@@ -59,51 +59,50 @@ class TestFileStorage_methods(unittest.TestCase):
         """Tests all() method of the FileStorage class"""
         self.assertEqual(dict, type(storage.all()))
 
-    def test_all_with_arg(self):
-        """Tests all() method of the FileStorage class with arg"""
+        # Tests all() method of the FileStorage class with arg
         with self.assertRaises(TypeError):
             storage.all(None)
 
     def test_new(self):
-        """Tests new() method of the FileStorage class with arg"""
+        """Tests new() method of the FileStorage class"""
         base_model = BaseModel()
 
         self.assertIn("BaseModel." + base_model.id, storage.all().keys())
         self.assertIn(base_model, storage.all().values())
 
-    def test_new_with_args(self):
+        # Tests new() method of the FileStorage class with arg
         with self.assertRaises(TypeError):
             storage.new(BaseModel(), 1)
 
-    def test_new_with_None(self):
+        # Tests new() method of the FileStorage class with None
         with self.assertRaises(AttributeError):
             storage.new(None)
 
     def test_save(self):
+        """Tests save() method of the FileStorage class"""
         base_model = BaseModel()
-        storage.new(base_model)
         storage.save()
         save_text = ""
         with open("file.json", "r") as f:
             save_text = f.read()
             self.assertIn("BaseModel." + base_model.id, save_text)
 
-    def test_save_with_arg(self):
+        # Test with args
         with self.assertRaises(TypeError):
             storage.save(None)
 
     def test_reload(self):
+        """Tests the reload method that it works correctly"""
         base_model = BaseModel()
-        storage.new(base_model)
         storage.save()
         storage.reload()
         objs = FileStorage._FileStorage__objects
         self.assertIn("BaseModel." + base_model.id, objs)
 
-    def test_reload_no_file(self):
+        # check if no file:
         self.assertRaises(FileNotFoundError, storage.reload())
 
-    def test_reload_with_arg(self):
+        # Tests the reload method with no args:
         with self.assertRaises(TypeError):
             storage.reload(None)
 
